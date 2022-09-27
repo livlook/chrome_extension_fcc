@@ -1,11 +1,26 @@
 {
-    "name": "Covid-19 Stats UK",
+    "name": "Hide the Twitter Sidebar",
     "version": "1.0.0",
-    "description": "latest covid data of UK",
+    "description": "Hide the Twitter sidebar",
     "manifest_version": 3,
-    "author": "Sampurna Chapagain",
-    "action":{
+    "author": "Olivia Look",
+    "action": {
         "default_popup": "index.html",
-        "default_title": "Latest Covid Report"
-    }
+        "default_title": "Hide the Twitter Sidebar"
+    },
+    "background": {
+      "service_worker": "background.js"
+    },
+    "permissions": [
+      "activeTab",
+      "declarativeContent",
+      "scripting",
+      "webNavigation"
+    ],
+    "content_scripts": [
+      {
+        "matches": ["https://twitter.com/home"],
+        "css": ["css.css"]
+      }
+    ]
 }
